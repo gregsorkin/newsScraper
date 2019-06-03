@@ -1,0 +1,42 @@
+<nav>
+    <div class="nav-wrapper light-blue darken-2">
+        <a href="#" class="brand-logo center">Medium.com News Scraper</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/api/scrape">Scrape New Articles</a></li>
+            <li><a href="#">Saved Articles</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div>
+        <h1 class="card-panel z-depth-3 light-blue lighten-2 center-align">Get the Most Up-to-Date Tech News from Medium.com</h1>
+        <div class="row">
+            <div class="col s3"></div>
+            <h5 class="card-panel z-depth light-blue lighten-3 center-align col s6">Click "Scrape New Articles" to get the latest stories</h5>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            {{#each data}}
+                <div class="col s12 m12 16 x14" id="{{this.url}}" style="display:inline-block;">
+                    <div class="card" style="min-height:330px;">
+                            <div class="card-image" style="position:relative">
+                                <img src="{{this.imageURL}}"/>
+                                <span class="card-title">"{{this.title}}"</span>
+                            </div>
+                            <div class="card-content">
+                            <p>{{this.summary}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{this.url}}">Link to article</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+
+</footer>

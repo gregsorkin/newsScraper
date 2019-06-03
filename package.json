@@ -1,0 +1,31 @@
+{
+  "name": "newsscraper",
+  "version": "1.0.0",
+  "description": "News Scraper (Cheerio + Mongoose) HW Assignment Week 18",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregsorkin/newsScraper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregsorkin/newsScraper/issues"
+  },
+  "homepage": "https://github.com/gregsorkin/newsScraper#readme",
+  "keywords": [],
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "materialize-css": "^1.0.0-rc.2",
+    "mongoose": "^5.5.11",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {}
+}
