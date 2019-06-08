@@ -1,42 +1,88 @@
 <nav>
-    <div class="nav-wrapper light-blue darken-2">
-        <a href="#" class="brand-logo center">Medium.com News Scraper</a>
+    <div class="nav-wrapper light-green darken-3">
+        <a href="#" class="brand-logo center"><img src="../public/assets/img/the-onion.svg" class="text-center"></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/api/saved">Saved Articles</a></li>
             <li><a href="/api/scrape">Scrape New Articles</a></li>
-            <li><a href="#">Saved Articles</a></li>
         </ul>
     </div>
 </nav>
+
 <main>
-    <div>
-        <h1 class="card-panel z-depth-3 light-blue lighten-2 center-align">Get the Most Up-to-Date Tech News from Medium.com</h1>
-        <div class="row">
-            <div class="col s3"></div>
-            <h5 class="card-panel z-depth light-blue lighten-3 center-align col s6">Click "Scrape New Articles" to get the latest stories</h5>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="row">
-            {{#each data}}
-                <div class="col s12 m12 16 x14" id="{{this.url}}" style="display:inline-block;">
-                    <div class="card" style="min-height:330px;">
-                            <div class="card-image" style="position:relative">
-                                <img src="{{this.imageURL}}"/>
-                                <span class="card-title">"{{this.title}}"</span>
-                            </div>
-                            <div class="card-content">
-                            <p>{{this.summary}}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="{{this.url}}">Link to article</a>
-                        </div>
-                    </div>
+    {{#each articles}}
+        <ul class="collapsible" data-collapsible="accordian">
+            {{!-- Article Dropdown  --}}
+            <li>
+                <div style="background-color: white;" class="collapsible-header-green lighten 1">
+                    <i class="material-icons">Language</i> <b>{{updated}}</b>
+                    <div style="clear: left; line-height: 110%; padding-bottom: 10px;"><b>{{title}}</b></div>
                 </div>
-        </div>
-    </div>
+                <div class="collapsible-body" style="background-color: white;">
+                    <p>
+                        {{summary}}
+                        <br>
+                        <i><a href="{{link}}" target="_blank">Click here to read the full article</a></i>
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <div class="collapsible-header"><i class="material-icons">Comment</i></div>
+                <div class="collapsible-body" style="background-color: white;">
+                    <form id="form-add-{{_id}}" action="add/note/{{_id}}" method="POST" style="background-color: white;">
+                        <div class="row">
+                            <div class="input-field col s2"></div>
+                            <div class="input-field col s8">
+                                <input id="authorName" name="name" type="text" class="validate">
+                                <label for="authorName">Name</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s2"></div>
+                            <div class="input-field col s8">
+                                <center>
+                                    <input class="btn add-note-button" data-id="{{_id}}" type="submit" value="Submit">
+                                </center>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+            <li>
+                <div class="collapsible-header"><i class="material-icons">thumps_up_down</i>View Notes</div>
+                <div class="collapsible-body" style="background-color: white;">
+                    {{#if notes}}
+
+                        <ul class="collection">
+                            {{#each notes}}
+                                <li class="collection-item">
+                                    <b>{{author}}</b>
+                                    <span class="badge">
+                                        <form id="form-delete-{{_id}}" action="remove/comment/{{_id}}" method="POST">
+                                            <input class="btn-small delete-note-button" data-id="{{_id}}" type="submit" value="Delete"
+                                            style="color: white; background-color: red; border-color: red;">
+                                        </form>
+                                    </span>
+                                    <br>
+                                    {{content}}
+                                </li>
+                            {{/each}}
+                        </ul>
+                    {{else}}
+                        <p>No notes yet</p>
+                    {{/if}}
+                </div>
+            </li>
+        </ul>
+    {{/each}}
 </main>
 
-<footer>
-
+<footer class="page-footer green-lighten 1">
+    <div class="center-align">
+        <div class="container white-text text-lighten-2">
+            &#169 2019 | Greg Sorkin | All articles pulled from <a href="http://www.theonion.com" target="_blank">theonion.com</a> 
+        </div>
+    </div>
 </footer>

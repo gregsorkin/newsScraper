@@ -1,9 +1,7 @@
 // Dependencies
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
-// Build Model
 const ArticleSchema = new Schema({
     headline: {
         type: String,
@@ -34,7 +32,7 @@ const ArticleSchema = new Schema({
         ref: "Comment"
     }]
 });
-
+    
 let Article = mongoose.model("Article", ArticleSchema);
 
 // Export Model

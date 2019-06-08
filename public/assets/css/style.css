@@ -1,13 +1,27 @@
-body {
-    background: url("../img/seamless-pattern-of-circuit-board-2370.png") repeat;
+body, main {
+    background-image: url("http://backgroundlabs.com/files/seamless-pattern-of-circuit-board-2370.png") repeat;
+    background-color: navy;
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
     line-height: 1.5;
     letter-spacing: .16px;
     flex-direction: row;
-
 }
 
 body img {
     opacity: 0.8;
 }
+
+.card {
+    min-height: 330px;
+    font-family: 'Courier New', Courier, monospace
+}
+
+.card-image {
+    position: relative;
+}
+
+.articleBox {
+    display: inline-block;
+}
+

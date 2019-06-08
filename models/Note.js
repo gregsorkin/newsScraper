@@ -5,10 +5,15 @@ const Schema = mongoose.Schema;
 
 // Build Model
 const commentSchema = new Schema({
-    body: String
+    title: {
+        type: String
+    }, 
+    body: {
+        type: String
+    }
 });
 
-let Comment = mongoose.model("Comment", commentSchema);
+let Note = mongoose.model("Note", commentSchema);
 
 // Export Model
-module.exports = Comment;
+module.exports = Note;
