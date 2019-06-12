@@ -1,11 +1,16 @@
+@font-face {
+    font-family: "Chomsky";
+    src: url("../fonts/Chomsky.otf")
+}
+
 body, main {
     background-image: url("http://backgroundlabs.com/files/seamless-pattern-of-circuit-board-2370.png") repeat;
-    background-color: navy;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 14px;
     line-height: 1.5;
     letter-spacing: .16px;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 body img {
@@ -21,7 +26,59 @@ body img {
     position: relative;
 }
 
-.articleBox {
-    display: inline-block;
+.articleBody {
+    margin: auto;
+    width: 95%;
+    min-height: 200px;
+    box-shadow: 0 0 10px #aaa;
+    background-color: #fff;
+}
+
+.articleBody h2 {
+    background-color: #3e9cfc;
+}
+
+.articleBody a {
+    float: left;
+    display: block;
+    width: 75%;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.articleBody button {
+    display: inline;
+    min-width: 128px;
+    background-color: #77b9fd;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.articleBody p {
+    width: 80%;
+    padding: 0px 20px;
+}
+
+#masthead {
+    font-family: "Chomsky";
+    color: white;
+}
+
+.brand-logo {
+    color: white;
+}
+
+footer {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    color: #ddd;
+    font-size: 14px;
+    border-top: 6px solid pink;
+    z-index: 3;
 }
 

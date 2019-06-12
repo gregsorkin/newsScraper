@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>News Scraper | Greg Sorkin</title>
+        <title>NY Times News Scraper | Greg Sorkin</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         {{!-- Materialize --}}
@@ -14,10 +14,47 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
     </head>
     <body>
+        <nav>
+            <div class="nav-wrapper blue-gray darken-4">
+                <a href="/" class="brand-logo center"><span id="masthead" class="text-center">The New York Times</span> Mongo Scraper</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="/saved">Saved Articles</a></li>
+                    <li><a href="/scrape">Scrape New Articles</a></li>
+                </ul>
+            </div>
+        </nav>
         
         {{{ body }}}
 
+        {{!-- <div id="addNote">
+            <div id="notePlayer">
+                <h2>Note</h2>
+                <h3>Article: <span id="article-title"></span></h3>
+                <div id="note">
+                    <label for="note-title">Title</label>
+                    <br>
+                    <input type="text" placeholder="Title" name="title" id="note-title">
+                    <br>
+                    <label for="note-body">Note</label>
+                    <br>
+                    <textarea rows="7" placeholder="Note" id="note-body"></textarea>
+                    <br>
+                    <button type="submit" id="addNote">Save Note</button>
+                    <button type="button" id="closeNote">Cancel</button>
+                </div>
+            </div>
+        </div> --}}
+
+        <footer class="page-footer blue-grey darken-4">
+            <div class="center-align">
+                <div class="container white-text blue-grey darken-4">
+                    &#169 2019 | <a href="http://www.github.com/gregsorkin" target="_blank">Greg Sorkin</a> | All articles pulled from <a href="http://www.nytimes.com" target="_blank">nytimes.com</a> 
+                </div>
+            </div>
+        </footer>
+
         {{!-- jQuery --}}
         <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="/assets/javascript/app.js"></script>
     </body>
 </html>

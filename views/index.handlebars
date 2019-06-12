@@ -1,88 +1,18 @@
-<nav>
-    <div class="nav-wrapper light-green darken-3">
-        <a href="#" class="brand-logo center"><img src="../public/assets/img/the-onion.svg" class="text-center"></a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="/api/saved">Saved Articles</a></li>
-            <li><a href="/api/scrape">Scrape New Articles</a></li>
-        </ul>
+{{#each articles}}
+    <div class="articleBody card blue-grey darken-1" id={{this._id}}>
+        <h2>
+            <a href="{{this.link}}" target="_blank">{{this.title}}</a>
+            <form action="/save/{{this._id}}" method="POST">
+                <button type="submit" class="status" value="{{this.status}}">{{this.status}}</button>
+                {{#unless this.note}}
+                    <button type="button" class="addNote-button" value="{{this._id}}">Add a note</button>
+                {{/unless}}
+                {{#if this.note}}
+                    <button type="button" class="addNote-button" value="{{this._id}}">Edit note</button>
+                {{/if}}
+            </form>
+        </h2>
+        <summary>{{this.summary}}</summary>
+        <img class="thumbnail" src="{{this.image}}"
     </div>
-</nav>
-
-<main>
-    {{#each articles}}
-        <ul class="collapsible" data-collapsible="accordian">
-            {{!-- Article Dropdown  --}}
-            <li>
-                <div style="background-color: white;" class="collapsible-header-green lighten 1">
-                    <i class="material-icons">Language</i> <b>{{updated}}</b>
-                    <div style="clear: left; line-height: 110%; padding-bottom: 10px;"><b>{{title}}</b></div>
-                </div>
-                <div class="collapsible-body" style="background-color: white;">
-                    <p>
-                        {{summary}}
-                        <br>
-                        <i><a href="{{link}}" target="_blank">Click here to read the full article</a></i>
-                    </p>
-                </div>
-            </li>
-
-            <li>
-                <div class="collapsible-header"><i class="material-icons">Comment</i></div>
-                <div class="collapsible-body" style="background-color: white;">
-                    <form id="form-add-{{_id}}" action="add/note/{{_id}}" method="POST" style="background-color: white;">
-                        <div class="row">
-                            <div class="input-field col s2"></div>
-                            <div class="input-field col s8">
-                                <input id="authorName" name="name" type="text" class="validate">
-                                <label for="authorName">Name</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="input-field col s2"></div>
-                            <div class="input-field col s8">
-                                <center>
-                                    <input class="btn add-note-button" data-id="{{_id}}" type="submit" value="Submit">
-                                </center>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-
-            <li>
-                <div class="collapsible-header"><i class="material-icons">thumps_up_down</i>View Notes</div>
-                <div class="collapsible-body" style="background-color: white;">
-                    {{#if notes}}
-
-                        <ul class="collection">
-                            {{#each notes}}
-                                <li class="collection-item">
-                                    <b>{{author}}</b>
-                                    <span class="badge">
-                                        <form id="form-delete-{{_id}}" action="remove/comment/{{_id}}" method="POST">
-                                            <input class="btn-small delete-note-button" data-id="{{_id}}" type="submit" value="Delete"
-                                            style="color: white; background-color: red; border-color: red;">
-                                        </form>
-                                    </span>
-                                    <br>
-                                    {{content}}
-                                </li>
-                            {{/each}}
-                        </ul>
-                    {{else}}
-                        <p>No notes yet</p>
-                    {{/if}}
-                </div>
-            </li>
-        </ul>
-    {{/each}}
-</main>
-
-<footer class="page-footer green-lighten 1">
-    <div class="center-align">
-        <div class="container white-text text-lighten-2">
-            &#169 2019 | Greg Sorkin | All articles pulled from <a href="http://www.theonion.com" target="_blank">theonion.com</a> 
-        </div>
-    </div>
-</footer>
+{{/each}}

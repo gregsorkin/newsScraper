@@ -1,19 +1,17 @@
 // Dependencies
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
-// Build Model
-const commentSchema = new Schema({
+const NoteSchema = new Schema ({
     title: {
         type: String
-    }, 
+    },
     body: {
         type: String
     }
 });
 
-let Note = mongoose.model("Note", commentSchema);
+const Note = mongoose.model("Note", NoteSchema);
 
-// Export Model
+// Export the model
 module.exports = Note;

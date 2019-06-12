@@ -1,0 +1,13 @@
+{{#each saved}}
+    <div class="storyBody" id="{{this._id}}">
+        <h2>
+            <a href="{{this.link}}" target="_blank">{{this.title}}</a>
+            <form action="/save/{{this._id}}" method="POST">
+                <button type="submit" class="status" value="{{this.status}}">{{this.status}}</button>
+                <button type="submit" class="addNote-button" value="{{this._id}}">Edit your thoughts</button>
+            </form>
+        </h2>
+        <summary>{{this.summary}}</summary>
+        <img class="thumbnail" src="{{this.image}}">
+    </div>
+{{/each}}
