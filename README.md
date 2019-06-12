@@ -1,14 +1,14 @@
 # newsScraper
 All the News That's Fit to Scrape - Week 18 HW Assignment
 
-This New York Times Article Scraper needs work, but the in-progress version can be found [on Heroku](https://new-york-times-mongo-scraper.herokuapp.com/). I plan to revisit this and make it fully-functional in the future.
+### This New York Times Article Scraper needs work, but the in-progress version can be found [on Heroku](https://new-york-times-mongo-scraper.herokuapp.com/). I plan to revisit this and make it fully-functional in the future.
 
-### Overview
+## Overview
 
 In this assignment, you'll create a web app that lets users view and leave comments on the latest news. But you're not going to actually write any articles; instead, you'll flex your Mongoose and Cheerio muscles to scrape news from another site.
 
 
-### Instructions
+## Instructions
 
 * Create an app that accomplishes the following:
 
